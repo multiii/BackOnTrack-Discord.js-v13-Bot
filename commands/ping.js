@@ -6,12 +6,17 @@ class PingCommand extends Command {
       ...options,
       name: "ping",
       description: "Pong!",
-      aliases: ["p"],
+      chatInputCommand: {
+        guildIds: ["722009125780979742"]
+      }
     });    
   }
 
-  async messageRun(message) {
-    await message.channel.send("Pong!")
+  async chatInputRun(interaction) {
+    await interaction.reply({
+      content: "Pong!",
+      ephemeral: true
+    });
   }
 }
 
